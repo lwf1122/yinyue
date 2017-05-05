@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>音悦</title>
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<link rel="stylesheet" type="text/css" href="../css/mv.css" />
+<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+</head>
+
+<body>
+<div class="header">
+    <div class="topbar">
+        <a href="../index.html"><img class="logo" src="../img/359047e0a3fbf9a65464b72deb3f0d44_0x0.png" alt="音悦" title="音悦"></a>
+        <ul class="nav">
+            <li><a class="on" href="../index.html">首页</a></li>
+            <li class="slideNav">
+                <a href="javascript:;">MV<span class="mv"></span></a>
+                <ul class="innerNav">
+                    <li><a href="#shoubo">MV首播</a></li>
+                    <li><a href="#liuxing">正在流行</a></li>
+                    <li><a href="#vbang">音乐V榜</a></li>
+                </ul>
+            </li>
+            <li><a href="javascript:;">V榜</a></li>
+            <li><a href="javascript:;">娱乐</a></li>
+            <li><a href="javascript:;">商城</a></li>
+            <li><a href="javascript:;">众筹</a></li>
+            <li><a href="javascript:;">民俗文化</a></li>
+        </ul>
+        <div class="user" id="nologin">
+            <a class="login" href="javascript:;">登录</a>
+            <a class="register" href="javascript:;">注册</a>
+        </div>
+        <div class="user" id="islogin" style="display:none;">
+            <a id="userName" href="javascript:;"></a>
+            <a id="userQuit" href="javascript:;">退出</a>
+        </div>
+        <form action="#" target="_blank" method="get">
+            <input class="search_text" type="text" placeholder="搜索"/>
+            <button class="search_sub" type="submit" title="搜索" value="搜索"></button>
+        </form>
+    </div>
+</div>
+
+<div class="divide"></div>
+
+<div class="mainbody">
+    <div id="videoArea">
+        <div class="videoBox">
+            <video id="video">
+                <source src="http://112.253.22.159/34/p/r/o/p/propxeibenvcznxcwzxxqemvcsmwlv/hc.yinyuetai.com/1D6D015BB289A9A758C8E23575B991C3.mp4?sc=3ad02aed5cda2c14&br=779&vid=2835468&aid=1559&area=KR&vst=2" type="video/mp4" />
+                您的浏览器不支持video标签
+            </video>
+            
+            <div id="icoPlay"></div>
+            
+            <div class="videoCtr">
+                <!--进度-->
+                <div id="prog" class="progress">
+                    <div id="slider" class="progressBar"></div>
+                </div>
+                
+                <!--按钮-->
+                <div class="videoBtn">
+                    <div id="playBtn" class="play b1 f"></div>
+                    
+                    <div class="time b1">
+                        <span id="curTime">00:00</span>
+                        <span>/</span>
+                        <span id="durTime">00:00</span>
+                    </div>
+                    
+                    <div id="fullScreen" class="full b2 f"></div>
+                    
+                    <!--音量-->
+                    <div id="volume" class="b2 f volume-up"></div>
+                    <div class="volumeWrap">
+                        <!--音量条-->
+                        <div class="progress">
+                            <div class="volumeBar"></div>
+                        </div>
+                        <!--音量条-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="videoBtm">
+            <h4 class="videoInfo">第五届音悦V榜年度盛典 全程高清内容</h4>
+            <div class="videoDes">
+                <p>TiAmo 第五届音悦V榜年度盛典 现场版17/04/08 -- T-ara<br />整场视频已替换高清，画面重新剪辑，去掉了部分摇晃的镜头和远景，很多之前没有抓到的舞蹈动作现在可以看清楚啦。请放心食用。</p>
+            </div>
+            <a href="javascript:;" id="toggleBtn">展开</a>
+        </div>
+    </div>
+    
+    <div id="commentArea">
+        <div id="release">
+            <h3 class="commentTitle">所有评论</h3>  
+            <div class="commentRelease">
+                <a href="javascript:;" class="head"><img src="../img/avatar.png" width="70" height="70" alt="" /></a>
+                <span class="arrow"><i></i></span>
+                <div class="releaseBox">
+                    <textarea class="releaseText"></textarea>
+                    <button type="button" class="releaseBtn" title="发布">发布</button>
+                    <span class="releaseWord"><span class="length">0</span>/140</span>
+                </div>
+            </div>
+        </div>
+        
+        <div id="wrap">
+            <div class="box">
+                <a href="javascript:;" class="avatar"><img src="../img/avatar.png" width="50" height="50" alt="" /></a>
+                <div class="content">
+                    <div class="main">
+                        <a class="user" href="javascript:;">Mayday_玖玖</a>
+                        <p class="txt">早早关注V台了,有这么快的发展真是想不到,只能说,真心喜爱音乐的就能找到这块地儿。</p>
+                    </div>
+                    <div class="info">
+                        <span class="time">2017/04/20 23:01</span>
+                        <a class="reply op" href="javascript:;" title="回复"></a>
+                        <a class="praise op" href="javascript:;" title="赞" total="4" my="0"><span>4</span></a>
+                    </div>
+                    <div class="comment-list">
+                        <div class="comment-box" user="self">
+                            <a href="javascript:;" class="myAvatar">
+                                <img src="../img/avatar.png" width="30" height="30" alt=""/>
+                            </a>
+                            <div class="comment-content">
+                                <p class="comment-text"><a href="javascript:;" class="user">风：</a>正真热爱音乐的地方</p>
+                                <p class="comment-time">
+                                    2017/04/23 14:36
+                                    <a href="javascript:;" class="comment-praise" total="1" my="0" title="赞"><span>1</span></a>
+                                    <a href="javascript:;" class="comment-operate">回复</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-box">
+                        <textarea class="comment" autocomplete="off" placeholder="评论..."></textarea>
+                        <button class="btn">回复</button>
+                        <span class="word"><span class="length">0</span>/140</span>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="box">
+                <a href="javascript:;" class="avatar"><img src="../img/avatar.png" width="50" height="50" alt="" /></a>
+                <div class="content">
+                    <div class="main">
+                        <a class="user" href="javascript:;">梨泰院小淑女</a>
+                        <p class="txt">我来了,听一听</p>
+                    </div>
+                    <div class="info">
+                        <span class="time">2017/04/13 23:01</span>
+                        <a class="reply op" href="javascript:;" title="回复"></a>
+                        <a class="praise op" href="javascript:;" title="赞" total="0" my="0"><span></span></a>
+                    </div>
+                    <div class="comment-list">
+                        <div class="comment-box" user="other">
+                            <a href="javascript:;" class="myAvatar">
+                                <img src="../img/avatar.png" width="30" height="30" alt=""/>
+                            </a>
+                            <div class="comment-content">
+                                <p class="comment-text">
+                                    <a href="javascript:;" class="user">稻城亚丁：</a>好听,跟之前声线不同,出彩。
+                                </p>
+                                <p class="comment-time">
+                                    2017/04/14 14:36
+                                    <a href="javascript:;" class="comment-praise" total="0" my="0" title="赞"><span></span></a>
+                                    <a href="javascript:;" class="comment-operate">回复</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-box">
+                        <textarea class="comment" autocomplete="off" placeholder="评论..."></textarea>
+                        <button class="btn">回复</button>
+                        <span class="word"><span class="length">0</span>/140</span>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="box">
+                <a href="javascript:;" class="avatar"><img src="../img/avatar.png" width="50" height="50" alt="" /></a>
+                <div class="content">
+                    <div class="main">
+                        <a class="user" href="javascript:;">心有千千结</a>
+                        <p class="txt">看了点映场,超级好看到爆!但是还是看原声粤语版比较好,准备二刷。</p>
+                    </div>
+                    <div class="info">
+                        <span class="time">2017/04/11 13:17</span>
+                        <a class="reply op" href="javascript:;" title="回复"></a>
+                        <a class="praise op" href="javascript:;" title="赞" total="0" my="0"><span></span></a>
+                    </div>
+                    <div class="comment-list"></div>
+                    <div class="text-box">
+                        <textarea class="comment" autocomplete="off" placeholder="评论..."></textarea>
+                        <button class="btn">回复</button>
+                        <span class="word"><span class="length">0</span>/140</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="flink">
+        <a href="javascript:;">关于我们</a>
+        <span class="fline"></span>
+        <a href="javascript:;">人才招聘</a>
+        <span class="fline"></span>
+        <a href="javascript:;">联系我们</a>
+        <span class="fline"></span>
+        <a href="javascript:;">友情链接</a>
+        <span class="fline"></span>
+        <a href="javascript:;">版权声明</a>
+        <span class="fline"></span>
+        <a href="javascript:;">客服中心</a>
+    </div>
+    <div class="fcopy">Copyright © 2017 yinyuetai.com 广播电视节目制作经营 许可证编号(京)字第1891号 | 京网文[2014]2037-287号 | 网络视听许可证0110413号</div>
+</div>
+
+<div id="goTopWrap">
+    <a id="goTop" href="javascript:;" title="回到顶部"></a>
+</div>
+
+<script src="../js/index.js"></script>
+<script src="../js/mv.js"></script>
+<script src="../js/comment.js"></script>
+
+</body>
+</html>
