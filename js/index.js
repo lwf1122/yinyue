@@ -95,6 +95,8 @@ function userlogin(){
 			//window.location.href=window.location.href; 
             //window.location.reload; 
 			window.location.reload();
+		}else if(username==""){
+			$("#msg").text('请先注册账号！');
 		}else{
 			$("#msg").text('该用户已注册！');
 		}
@@ -113,6 +115,8 @@ function userlogin(){
                 //window.location.reload;
 				window.location.reload();
 			}
+		} else if(username==""){
+			$("#msg").text('请输入用户名！');
 		} else {
 			$("#msg").text('用户名不存在！');
 		}

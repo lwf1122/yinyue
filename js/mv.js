@@ -34,7 +34,7 @@ fullScreen.onclick = function(){
 		});	
 	}else{
 		$("#fullScreen").removeClass("exit").addClass("full");
-		exitFullscreen()
+		exitFullscreen();
 	}
 }
 function launchFullScreen(element) { 

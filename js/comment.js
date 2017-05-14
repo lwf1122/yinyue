@@ -38,7 +38,7 @@ $(function(){
     }
 	$("#release .releaseBtn").on("click",function(){
 		if(text.value!=""){
-			//var firstBox = wrap.firstChild;
+			var firstBox = wrap.firstChild;
 			var box = document.createElement("div");
 			box.className = "box";
 			box.innerHTML =
@@ -65,9 +65,11 @@ $(function(){
 				"<span class='word'><span class='length'>0</span>/140</span>"+
 				"</div>"+
 				"</div>";
-			wrap.appendChild(box);
-			//wrap.insertBefore(box,firstBox);
+			//wrap.appendChild(box);
+			wrap.insertBefore(box,firstBox);
 			text.value = "";
+			var rword = release.getElementsByClassName("releaseWord")[0];
+			rword.innerHTML = 0 + "/140";
 		}
 	});
 
@@ -103,6 +105,7 @@ $(function(){
     function reply(box, el) {
         var commentList = box.getElementsByClassName("comment-list")[0];
         var textarea = box.getElementsByClassName("comment")[0];
+		var word = box.getElementsByClassName("word")[0];
         var commentBox = document.createElement("div");
         commentBox.className = "comment-box";
         commentBox.setAttribute("user", "self");
@@ -120,7 +123,9 @@ $(function(){
                 "</div>"
         commentList.appendChild(commentBox);
         textarea.value = "";
-        textarea.onblur();
+        //textarea.blur();
+		textarea.parentNode.className = "text-box";
+		word.innerHTML = 0 + "/140";
     }
     
 	//赞评论
@@ -135,17 +140,14 @@ $(function(){
             newTotal = oldTotal + 1;
             praise.setAttribute("total", newTotal);
 			praise.setAttribute("my", 1);
-            //praise.innerHTML = (newTotal == 1) ? "我觉得很赞" : "我和" + oldTotal + "个人觉得很赞";
             span.innerHTML = newTotal;
         }
         else {
             newTotal = oldTotal - 1;
             praise.setAttribute("total", newTotal);
 			praise.setAttribute("my", 0);
-            //praise.innerHTML = (newTotal == 0) ? "" : newTotal + "个人觉得很赞";
             span.innerHTML = (newTotal == 0) ? "" : newTotal;
         }
-        //praise.style.display = (newTotal == 0) ? "none" : "block";
     }
 
 	//赞回复
@@ -166,7 +168,6 @@ $(function(){
             el.setAttribute("my", 0);
             span.innerHTML = (newTotal == 0) ? "" : newTotal;
         }
-        //span.style.display = (newTotal == 0) ? "" : "block"
     }
 	
 	//删除回复
@@ -184,87 +185,80 @@ $(function(){
         if (txt == "回复") {
             textarea.focus();
             textarea.value = "回复 " + user;
-            textarea.onkeyup();
+            textarea.keyup;
         }
         else {
             removeNode(commentBox);
         }
     }
 
-    //把事件代理到每条评论div容器
-    for (var i = 0; i < boxs.length; i++) {
-
-        //点击
-        boxs[i].onclick = function (e) {
-            e = e || window.event;
-            var el = e.srcElement;
-            switch (el.className) {
-                //赞评论
-                case "praise op":
-                    praiseBox(el.parentNode.parentNode.parentNode, el);
-                    break;
+    //点击事件
+    wrap.onclick = function (e) {
+        e = e || window.event;
+        var el = e.srcElement;
+        switch (el.className) {
+            //赞评论
+            case "praise op":
+                praiseBox(el.parentNode.parentNode.parentNode, el);
+                break;
 					
-                //图标回复评论
-				case "reply op":
-				    replyBtn(el);
-					break;
+            //图标回复评论
+			case "reply op":
+			    replyBtn(el);
+				break;
 				
-                //回复按钮蓝
-                case "btn":
-                    reply(el.parentNode.parentNode.parentNode, el);
-                    break
+            //回复按钮蓝
+            case "btn":
+                reply(el.parentNode.parentNode.parentNode, el);
+                break;
 
-                //回复按钮灰
-                case "btn btn-off":
-                    clearTimeout(t);
-                    break;
+            //回复按钮灰
+            case "btn btn-off":
+                clearTimeout(t);
+                break;
 
-                //赞回复
-                case "comment-praise":
-                    praiseReply(el);
-                    break;
+            //赞回复
+            case "comment-praise":
+                praiseReply(el);
+                break;
 
-                //回复或删除回复
-                case "comment-operate":
-                    operate(el);
-                    break;
-            }
-        }
-
-        //评论
-        var textArea = boxs[i].getElementsByClassName("comment")[0];
-
-        //评论获取焦点
-        textArea.onfocus = function () {
-            this.parentNode.className = "text-box text-box-on";
-            this.onkeyup();
-        }
-
-        //评论失去焦点
-        textArea.onblur = function () {
-            var me = this;
-            var val = me.value;
-            if (val == "") {
-                t = setTimeout(function () {
-                    me.parentNode.className = "text-box";
-                }, 200);
-            }
-        }
-
-        //评论按键事件
-        textArea.onkeyup = function () {
-            var val = this.value;
-            var len = val.length;
-            var els = this.parentNode.children;
-            var btn = els[1];
-            var word = els[2];
-            if (len <=0 || len > 140) {
-                btn.className = "btn btn-off";
-            }
-            else {
-                btn.className = "btn";
-            }
-            word.innerHTML = len + "/140";
+            //回复或删除回复
+            case "comment-operate":
+                operate(el);
+                break;
         }
     }
+
+    //评论获取焦点
+    $("#wrap").on("focus",".comment",function(){
+        this.parentNode.className = "text-box text-box-on";
+        this.keyup;
+    })
+
+    //评论失去焦点
+    $("#wrap").on("blur",".comment",function(){
+        var me = this;
+        var val = me.value;
+        if (val == "") {
+            t = setTimeout(function () {
+                me.parentNode.className = "text-box";
+            },0);
+        }
+    })
+
+    //评论按键事件
+    $("#wrap").on("keyup",".comment",function(){
+        var val = this.value;
+        var len = val.length;
+        var els = this.parentNode.children;
+        var btn = els[1];
+        var word = els[2];
+        if (len <=0 || len > 140) {
+            btn.className = "btn btn-off";
+        }
+        else {
+            btn.className = "btn";
+        }
+        word.innerHTML = len + "/140";
+    })
 })
