@@ -1,4 +1,4 @@
-.mainbody{background:#fff;}
+.mainbody{min-width:1240px; background:#fff;}
 #videoArea{background:#151515;}
 #videoArea .videoBox{width:1045.33px; margin:0 auto; padding-top:2px; position:relative;}
 #videoArea .videoBox #video{width:100%; height:588px;}

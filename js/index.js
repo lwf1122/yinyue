@@ -170,7 +170,7 @@ $(function(){
 	
 	//自动
 	var i=0;
-	var t=setInterval(moveR,2000);
+	var t=setInterval(moveR,3000);
 	
 	//向左函数
 	function moveL(){
@@ -204,7 +204,7 @@ $(function(){
 	$("#focus").hover(function(){
 		clearInterval(t);
 	},function(){
-		t=setInterval(moveR,2000);
+		t=setInterval(moveR,3000);
 	})
 })
 
