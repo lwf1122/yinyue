@@ -25,10 +25,14 @@ body{backgro und-color:#f2f2f2;}
 .header .user a:hover{color:#CCFF99;}
 .divide{width:100%; height:50px;}
 
+@media(min-width:1366px){#focus,#focus .list li{height:505.875px;}}
+@media(min-width:1440px){#focus,#focus .list li{height:533.625px;}}
+@media(min-width:1600px){#focus,#focus .list li{height:593.625px;}}
+
 #focus{min-width:1240px; max-width:1600px; height:505.875px; margin:0 auto; position:relative;}
-#focus .list li{position:absolute; display:none;}
+#focus .list li{position:absolute; height:505.875px; display:none;}
 #focus .list img{width:100%; height:100%;}
-#focus .page{width:100%; position:absolute; bottom:25px; text-align:center;}
+#focus .page{width:100%; position:absolute; bottom:20px; text-align:center;}
 #focus .page li{width:12px; height:12px; line-height:12px; background:#FFF; opacity:0.5; text-align:center; border-radius:50%; display:inline-block; margin:12px 12px; cursor:pointer;}
 #focus .page li:hover{background:rgb(163,207,42);}
 #focus .page li.active{background:rgb(163,207,42);}

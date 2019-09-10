@@ -242,7 +242,7 @@ $(function(){
         if (val == "") {
             t = setTimeout(function () {
                 me.parentNode.className = "text-box";
-            },0);
+            },100);
         }
     })
 
